@@ -48,6 +48,7 @@ console.log(teste + teste2); // vai concatenar a string 5 com o int 2 (52).
 
 // em códigos com tipagem fraca pode-se manipular dados de diferentaes tipos como o exemplo acima.
 // tipagem fraca facilita para que a linguagem seja multi paradigma.
+// uma peculiaridade do Javascript é a opção de não fechar o bloco de código com ponto e vírgula ;
 
 
 
@@ -262,3 +263,32 @@ let soma = a => a++; //recebeu apenas um parâmetro - dispensa parênteses
 let soma = (a, b) => a + b; // recebeu mais de um parâmetro
 
 
+/*--------------------------------------- Função Factory --------------------------------------*/
+
+// Função Factory é um método construtor, ou seja, será uma função que retorna um objeto.
+
+function criarProduto(nome, preco){
+    return{
+        nome,
+        preco,
+    };
+};
+
+console.log(criarProduto('camisa', 59.99)); //criar produto retornou um objeto camisa no valor de 59.99
+console.log(criarProduto('calça', 102.00)); //criar produto retornou o objeto calça no valor de 102.00
+console.log(criarProduto('sapato', 95.99)); //criar produto retornou um objeto sapato no valor de 95.99
+
+//OBS: A partir do ES6 é possível usar também classes construtoras com o "constructor".
+
+    class Produto{
+        constructor(nome){
+            this.nome = nome;
+        }
+
+        identificar(){
+            console.log(`Olá, sou um(a) ${this.nome}`);
+        }
+    }
+
+    const p1 = new Produto ('caneta');
+    p1.identificar();
